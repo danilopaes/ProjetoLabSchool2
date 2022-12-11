@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  bd:
+    image: mariadb:10.9.4-jammy
+    volumes:
+      - bd_data:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: 4W11RJoy95Ku0yMu1pF
+      MARIADB_DATABASE: labschoolbd
+      MARIADB_USER: sms
+      MARIADB_PASSWORD: sms
+    ports:
+      - "3306:3306"
+
+networks:
+  default:
+    name: sms-network
+    external: false
+
+volumes:
+  bd_data:
+    driver: local
